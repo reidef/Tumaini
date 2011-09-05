@@ -1,4 +1,8 @@
 Tumaini::Application.routes.draw do
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  resources :sessions, :only => [:new, :create, :destroy]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
