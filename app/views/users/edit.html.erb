@@ -1,0 +1,10 @@
+<h1>Edit User</h1>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email %>
+  <section>
+    <%= f.input :password, :required => false %>
+    <%= f.input :password_confirmation, :required => false, :label => "Confirm" %>
+  </section>
+  <%= f.submit %>
+<% end %>
