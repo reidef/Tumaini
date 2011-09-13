@@ -6,11 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      if params[:remember_me]
-        cookies.permanent[:auth_token] = user.auth_token
-      else
-        cookies[:auth_token] = user.auth_token
-      end
+      cookies.permanent[:auth_token] = user.auth_token
       if cookies[:client_token]
         redirect_to "/remote_sessions/create"
       else
