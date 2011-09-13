@@ -8,8 +8,9 @@
 </head>
 <body>
   <section><%= link_to "Logout", logout_path if current_user %></section>
-
-<%= yield %>
-
+  <% flash.each do |key, message| %>
+    <%= content_tag :p, message, :class => "flash #{key}" %>
+  <% end %>
+  <%= yield %>
 </body>
 </html>
