@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
+  belongs_to :organization
+  
   validates_presence_of :password, :on => :create
   validates :password_confirmation, :presence => true, :on => :create
   validates :email, :presence => true,

@@ -1,0 +1,13 @@
+<h1>Organizations</h1>
+
+<%= link_to "Add Organization", new_organization_path %>
+
+<% @orgs.each do |org| %>
+  <h2><%= org.name %></h2>
+  <%= link_to "Edit", edit_organization_path(org) %> |
+  <%= link_to "Delete", org, :method => :delete, :confirm => "Are you sure you want to delete this organization and all associated users?" %><br />
+  <ul>
+    <%= render org.users %>
+    <li><%= link_to "Add user", new_organization_user_path(org) %></li>
+  </ul>
+<% end %>

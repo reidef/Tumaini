@@ -6,13 +6,15 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
+    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
+    @user = @organization.users.build
   end
   
   def create
-    @user = User.new(params[:user])
+    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
+    @user = @organization.users.build(params[:user])
     if @user.save
-      redirect_to users_path, :notice => "User created successfully."
+      redirect_to organizations_path, :notice => "User created successfully."
     else
       flash.now.alert = "There was an error saving the user."
       render "new"
