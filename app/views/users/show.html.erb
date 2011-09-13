@@ -5,6 +5,11 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Auth Token:</strong>
+  <%= @user.auth_token %>
+</p>
+
 <nav>
   <%= link_to "All Users", users_path %> | 
   <%= link_to "Edit", edit_user_path(@user) %> | 

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
                     :uniqueness => true,
                     :email_format => true
+  
   before_create { generate_token(:auth_token) }
   
   def generate_token(column)

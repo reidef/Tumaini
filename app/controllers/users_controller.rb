@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :login_required, :except => :authorize
+  
   def index
     @users = User.all
   end
@@ -19,6 +21,11 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
   
   def edit
@@ -41,5 +48,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path, :notice => 'User removed.'
+  end
+  
+  def authorize
+    @user = User.find_by_auth_token(params[:auth_token], :select => 'id, auth_token')
+    respond_to do |format|
+      if @user
+        format.json { render json: @user }
+      else
+        format.json { render :text => "Forbidden: Invalid Token", :status => :unauthorized }
+      end
+    end
   end
 end
