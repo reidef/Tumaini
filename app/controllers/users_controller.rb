@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path, :notice => 'User removed.'
+    redirect_to :back, :notice => 'User removed.'
   end
   
   def authorize
