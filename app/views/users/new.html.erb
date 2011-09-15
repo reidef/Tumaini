@@ -4,5 +4,8 @@
   <%= f.input :email %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
+  <%= f.association :client_apps, :as => :check_boxes, :collection => @user.organization.client_apps %>
   <%= f.submit %>
 <% end %>
+
+<%= link_to "Back", :back %>

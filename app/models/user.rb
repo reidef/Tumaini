@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :client_app_ids
   
   has_secure_password
   
   belongs_to :organization
+  has_and_belongs_to_many :client_apps
   
   validates_presence_of :password, :on => :create
   validates :password_confirmation, :presence => true, :on => :create

@@ -10,6 +10,11 @@
   <%= @user.auth_token %>
 </p>
 
+<p>
+  <strong>Authorized Applications:</strong>
+  <%= @user.client_apps.map{ |app| app.name }.join(', ') %>
+</p>
+
 <nav>
   <%= link_to "All Users", users_path %> | 
   <%= link_to "Edit", edit_user_path(@user) %> | 
