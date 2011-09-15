@@ -1,0 +1,9 @@
+<h1>Add Client Application</h1>
+
+<%= simple_form_for @app do |f| %>
+  <%= f.input :name %>
+  <%= f.input :api_key %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", client_apps_path %>
