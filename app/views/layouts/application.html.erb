@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <section><%= link_to "Logout", logout_path if current_user %></section>
+  <nav class='horizontal'>
+    <ul>
+      <%= content_tag(:li, link_to("Users", users_path)) if can? :read, User %>
+      <%= content_tag(:li, link_to("Organizations", organizations_path)) if can? :read, Organization %>
+      <%= content_tag(:li, link_to("Applications", client_apps_path)) if can? :read, ClientApp %>
+      <%= content_tag(:li, link_to("Logout", logout_path)) if current_user %>
+    </ul>
+  </nav>
   <% flash.each do |key, message| %>
     <%= content_tag :p, message, :class => "flash #{key}" %>
   <% end %>
