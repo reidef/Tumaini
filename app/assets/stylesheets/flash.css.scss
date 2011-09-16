@@ -1,0 +1,15 @@
+@mixin flash-colors($color) {
+  border-color: $color;
+  background: lighten($color, 45);
+}
+
+.flash {
+  border: 1px solid;
+  padding: 10px;
+  &.notice {
+    @include flash-colors(green)
+  }
+  &.alert {
+    @include flash-colors(red)
+  }
+}
