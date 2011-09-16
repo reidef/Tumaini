@@ -2,10 +2,10 @@
 
 <%= link_to "Add Organization", new_organization_path %>
 
-<% @orgs.each do |org| %>
+<% @organizations.each do |org| %>
   <h2><%= org.name %></h2>
-  <%= link_to "Edit", edit_organization_path(org) %> |
-  <%= link_to "Delete", org, :method => :delete, :confirm => "Are you sure you want to delete this organization and all associated users?" %><br />
+  <%= link_to "Edit", edit_organization_path(org) if can? :edit, org %> |
+  <%= link_to "Delete", org, :method => :delete, :confirm => "Are you sure you want to delete this organization and all associated users?" if can? :delete, org %><br />
   <p>
     <strong>Authorized Applications:</strong>
     <%= org.client_apps.map{ |app| app.name }.join(', ') %>

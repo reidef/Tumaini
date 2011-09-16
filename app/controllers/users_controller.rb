@@ -1,18 +1,21 @@
 class UsersController < ApplicationController
   before_filter :login_required, :except => :authorize
+  load_and_authorize_resource :except => [:new, :create, :authorize]
   
   def index
-    @users = User.all
+    
   end
   
   def new
     @organization = Organization.find(params[:organization_id]) if params[:organization_id]
     @user = @organization.users.build
+    authorize! :new, @user
   end
   
   def create
     @organization = Organization.find(params[:organization_id]) if params[:organization_id]
     @user = @organization.users.build(params[:user])
+    authorize! :create, @user
     if @user.save
       redirect_to organizations_path, :notice => "User created successfully."
     else
@@ -22,8 +25,6 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
-    
     respond_to do |format|
       format.html
       format.json { render json: @user }
@@ -31,11 +32,10 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+
   end
   
   def update
-    @user = User.find(params[:id])
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
     if @user.update_attributes(params[:user])
@@ -47,7 +47,6 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to :back, :notice => 'User removed.'
   end

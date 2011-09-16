@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915014024) do
+ActiveRecord::Schema.define(:version => 20110916020332) do
 
   create_table "client_apps", :force => true do |t|
     t.string   "name"
@@ -36,13 +36,7 @@ ActiveRecord::Schema.define(:version => 20110915014024) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "auth_token"
-    t.integer  "organization_id"
-  end
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'bool' for column 'admin'
 
 end
