@@ -41,5 +41,6 @@ group :test do
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'mocha'
+  gem 'rb-fsevent'
+  gem 'guard-rspec'
 end
