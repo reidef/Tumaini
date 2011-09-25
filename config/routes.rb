@@ -1,5 +1,5 @@
 Tumaini::Application.routes.draw do
-  match "remote_sessions/create(/:client_token)" => 'remote_sessions#create'
+  match "remote_sessions/create(/:client_token)" => 'remote_sessions#create', :as => "remote_sessions"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   
