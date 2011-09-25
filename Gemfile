@@ -33,7 +33,10 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'cancan'
 
-gem 'rspec-rails', :group => [:test, :development]
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard-pow'
+end
 
 group :test do
   gem 'database_cleaner'
@@ -43,4 +46,5 @@ group :test do
   gem 'launchy'
   gem 'rb-fsevent'
   gem 'guard-rspec'
+  gem 'guard'
 end
