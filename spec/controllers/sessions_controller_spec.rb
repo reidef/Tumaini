@@ -45,11 +45,11 @@ describe SessionsController do
     end
   end
 
-  # describe "GET 'destroy'" do
-  #   it "should be successful" do
-  #     get 'destroy'
-  #     response.should be_success
-  #   end
-  # end
-
+  describe "GET 'destroy'" do
+    it "should be successful" do
+      get 'destroy'
+      response.should redirect_to root_url
+      flash[:notice].should eq("Logged out!")
+    end
+  end
 end
