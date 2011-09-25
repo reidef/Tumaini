@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :client_app do
-      name "MyString"
-      api_key "MyString"
+    sequence :name do |n|
+      "My #{n} App"
     end
+  end
 end
