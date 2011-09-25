@@ -37,7 +37,14 @@ ActiveRecord::Schema.define(:version => 20110924222026) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'bool' for column 'admin'
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "auth_token"
+    t.integer  "organization_id"
+    t.boolean  "admin"
+  end
 
 end
