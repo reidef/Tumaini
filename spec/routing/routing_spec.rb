@@ -30,3 +30,19 @@ describe "root path" do
       :action => "new")
   end
 end
+
+describe "nested user routes" do
+  it "routes to new user for organization" do
+    { :get => "/organizations/1/users/new" }.should route_to(
+      :controller => "users",
+      :action => "new",
+      :organization_id => "1")
+  end
+  
+  it "routes to create user for organization" do
+    { :post => "/organizations/1/users/" }.should route_to(
+      :controller => "users",
+      :action => "create",
+      :organization_id => "1")
+  end
+end
