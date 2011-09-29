@@ -46,5 +46,6 @@ group :test do
   gem 'launchy'
   gem 'rb-fsevent'
   gem 'guard-rspec'
-  gem 'guard'
+  gem 'spork', "> 0.9.0.rc"
+  gem 'guard-spork'
 end
