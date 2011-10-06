@@ -9,10 +9,9 @@ describe SessionsController do
     end
     
     it "should redirect to logged in user's page" do
-      current_user = mock_model User
-      controller.stub!(:current_user).and_return(current_user)
+      logged_in
       get 'new'
-      response.should redirect_to current_user
+      response.should redirect_to @current_user
     end
   end
 
