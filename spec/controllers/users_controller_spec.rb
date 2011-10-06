@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
   before :each do
-    @ability = Object.new
-    @ability.extend(CanCan::Ability)
-    @controller.stub!(:current_ability).and_return(@ability)
+    with_cancan
     
     @org = stub_model Organization
     Organization.stub!(:find).and_return(@org)
