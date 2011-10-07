@@ -7,6 +7,7 @@ module ControllerMacros
     def it_requires_user_to_be_logged_in(*actions)
       actions.each do |action|
         it "#{action} should redirect user is not logged in" do
+          not_logged_in
           get action, :id => 1
           response.should be_redirect
           response.should redirect_to root_url

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe RemoteSessionsController do
+  it_requires_user_to_be_logged_in :create
+  
   before(:each) do
     @app = mock_model ClientApp, :callback_url => "http://example.com/"
     @current_user = mock_model User, :auth_token => "secret", :client_apps => @app
