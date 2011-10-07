@@ -1,0 +1,3 @@
+<% flash.each do |key, message| %>
+  <%= content_tag :div, message, :class => "alert-message " + bootstrap_flash(key) %>
+<% end %>

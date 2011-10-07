@@ -6,18 +6,23 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <nav class='horizontal'>
-    <ul>
-      <%= content_tag(:li, link_to("Users", users_path)) if can? :read, User %>
-      <%= content_tag(:li, link_to("Organizations", organizations_path)) if can? :read, Organization %>
-      <%= content_tag(:li, link_to("Applications", client_apps_path)) if can? :read, ClientApp %>
-      <%= content_tag(:li, link_to("Logout", logout_path)) if current_user %>
-    </ul>
-  </nav>
-  <% flash.each do |key, message| %>
-    <%= content_tag :p, message, :class => "flash #{key}" %>
-  <% end %>
-  <%= yield %>
+<body>  
+  <div class='topbar'>
+    <div class='topbar-inner'>
+      <div class='container'>
+        <h3><%= link_to "Tumaini", root_url %></h3>
+        <ul class='nav'>
+          <%= content_tag(:li, link_to("Users", users_path)) if can? :read, User %>
+          <%= content_tag(:li, link_to("Organizations", organizations_path)) if can? :read, Organization %>
+          <%= content_tag(:li, link_to("Applications", client_apps_path)) if can? :read, ClientApp %>
+          <%= content_tag(:li, link_to("Logout", logout_path)) if current_user %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class='container'>
+    <%= render :partial => 'layouts/flash', :locals => {:flash => flash} %>
+    <%= yield %>
+  </div>
 </body>
 </html>

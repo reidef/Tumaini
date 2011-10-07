@@ -32,6 +32,7 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 gem 'cancan'
+gem 'bootstrap-sass'
 
 group :test, :development do
   gem 'rspec-rails'
