@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe UsersController do
+  it_requires_user_to_be_logged_in :index, :edit, :update, :destroy
+  describe "authoriztion" do
+    before(:each) { User.stub(:find) }
+    it_redirects_without_authoriztion :index, :edit, :update, :destroy
+  end
+  
   before :each do
     with_cancan
     
