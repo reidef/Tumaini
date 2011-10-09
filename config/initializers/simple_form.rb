@@ -4,11 +4,21 @@ SimpleForm.setup do |config|
   # You can remove any component from the wrapper, change the order or even
   # add your own to the stack. The options given to the wrappers method
   # are used to wrap the whole input (if any exists).
-  config.wrappers :class => :input, :error_class => :field_with_errors do |b|
+  # config.wrappers :class => :input, :error_class => :field_with_errors do |b|
+  #   b.use :placeholder
+  #   b.use :label_input
+  #   b.use :hint,  :tag => :span, :class => :hint
+  #   b.use :error, :tag => :span, :class => :error
+  # end
+  
+  config.wrappers :class => 'clearfix', :error_class => :error do |b|
     b.use :placeholder
-    b.use :label_input
-    b.use :hint,  :tag => :span, :class => :hint
-    b.use :error, :tag => :span, :class => :error
+    b.use :label
+    b.use :tag => 'div', :class => 'input' do |ba|
+      ba.use :input
+      ba.use :error, :tag => :span, :class => :'help-inline'
+      ba.use :hint,  :tag => :span, :class => :'help-block'
+    end
   end
 
   # Method used to tidy up errors.
