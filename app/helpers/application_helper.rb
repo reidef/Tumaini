@@ -2,7 +2,7 @@ module ApplicationHelper
   def bootstrap_flash(type)
     case type
       when :alert
-        "warning"
+        "error"
       when :error
         "error"
       when :notice
