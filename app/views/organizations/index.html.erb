@@ -13,6 +13,6 @@
   
   <ul>
     <%= render org.users %>
-    <li><%= link_to "Add user", new_organization_user_path(org) %></li>
+    <li><%= link_to "Add new #{org.name} user", new_organization_user_path(org) %></li>
   </ul>
 <% end %>
