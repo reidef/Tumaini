@@ -4,30 +4,12 @@ SimpleForm.setup do |config|
   # You can remove any component from the wrapper, change the order or even
   # add your own to the stack. The options given to the wrappers method
   # are used to wrap the whole input (if any exists).
-  # config.wrappers :class => :input, :error_class => :field_with_errors do |b|
-  #   b.use :placeholder
-  #   b.use :label_input
-  #   b.use :hint,  :tag => :span, :class => :hint
-  #   b.use :error, :tag => :span, :class => :error
-  # end
   
   config.wrappers :class => 'clearfix', :error_class => :error do |b|
     b.use :placeholder
     b.use :label
     b.use :tag => 'div', :class => 'input' do |ba|
       ba.use :input
-      ba.use :error, :tag => :span, :class => :'help-inline'
-      ba.use :hint,  :tag => :span, :class => :'help-block'
-    end
-  end
-  
-  config.wrappers :collection, :class => 'clearfix', :error_class => :error do |b|
-    b.use :placeholder
-    b.use :label
-    b.use :tag => 'div', :class => 'input' do |ba|
-      ba.use :tag => 'ul', :class => 'inputs-list' do |baa|
-        baa.use :input
-      end        
       ba.use :error, :tag => :span, :class => :'help-inline'
       ba.use :hint,  :tag => :span, :class => :'help-block'
     end
@@ -52,13 +34,16 @@ SimpleForm.setup do |config|
   # config.collection_value_methods = [ :id, :to_s ]
 
   # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
-  # config.collection_wrapper_tag = :ul
+  config.collection_wrapper_tag = :ul
+
+  # You can define the class to use on all collection wrappers. Defaulting to none.
+  config.collection_wrapper_class = 'inputs-list'
 
   # You can wrap each item in a collection of radio/check boxes with a tag, defaulting to span.
   config.item_wrapper_tag = :li
 
   # How the label text should be generated altogether with the required text.
-  config.label_text = lambda { |label, required| "#{label} #{required}" }
+  # config.label_text = lambda { |label, required| "#{required} #{label}" }
 
   # You can define the class to use on all labels. Default is nil.
   # config.label_class = nil

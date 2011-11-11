@@ -2,7 +2,7 @@
 
 <%= simple_form_for @user do |f| %>
   <%= f.input :email %>
-  <%= f.association( :client_apps, :as => :check_boxes, :collection => @user.organization.client_apps, :wrapper => :collection) if @user.organization %>
+  <%= f.association( :client_apps, :as => :check_boxes, :collection => @user.organization.client_apps) if @user.organization %>
   <%= f.input :password, :required => false %>
   <%= f.input :password_confirmation, :required => false, :label => "Confirm" %>
   <div class="actions">

@@ -1,6 +1,6 @@
 <%= simple_form_for @organization do |f| %>
   <%= f.input :name %>
-  <%= f.association :client_apps, :as => :check_boxes, :wrapper => :collection %>
+  <%= f.association :client_apps, :as => :check_boxes %>
   <div class="actions">
     <%= f.button :submit, :class => 'primary' %>
     <%= button_tag 'Reset', :type => :reset, :class => "btn" %>
