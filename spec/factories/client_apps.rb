@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :client_app do
-    sequence :name do |n|
-      "My #{n} App"
-    end
+    sequence(:name)  {|n| "My #{n} App" }
   end
 end
