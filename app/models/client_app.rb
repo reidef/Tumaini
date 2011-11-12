@@ -4,4 +4,5 @@ class ClientApp < ActiveRecord::Base
   
   validates :name, :presence => true,
                    :uniqueness => true
+  validates :api_key, :presence => true
 end

@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :client_app do
     sequence(:name)  {|n| "My #{n} App" }
+    api_key "randomAPIkey"
   end
 end
