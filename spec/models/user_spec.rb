@@ -21,7 +21,7 @@ describe User do
     FactoryGirl.build(:user, :email => "").should_not be_valid
   end
   
-  it "is invalid with if email already exists" do
+  it "is invalid if email already exists" do
     FactoryGirl.create(:user, :email => "user@example.com")
     FactoryGirl.build(:user, :email => "user@example.com").should_not be_valid
   end
