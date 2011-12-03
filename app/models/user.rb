@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include TokenGenerator
+  
   attr_accessible :email, :password, :password_confirmation, :client_app_ids
   
   has_secure_password
@@ -13,10 +15,4 @@ class User < ActiveRecord::Base
                     :email_format => true
   
   before_create { generate_token(:auth_token) }
-  
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
-  end
 end
