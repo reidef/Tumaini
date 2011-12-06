@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource :except => [:new, :create, :authorize]
   
   def index
-    
+    @users_by_org = @users.where("organization_id IS NOT NULL").group_by(&:organization)
   end
   
   def new
