@@ -1,6 +1,9 @@
 <%= simple_form_for @client_app do |f| %>
   <%= f.input :name %>
-  <%= f.input :api_key %>
   <%= f.input :callback_url %>
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.button :submit, :class => 'primary' %>
+    <%= button_tag 'Reset', :type => :reset, :class => "btn" %>
+    <%= link_to 'Back', :back, :class => "btn" %>
+  </div>
 <% end %>
