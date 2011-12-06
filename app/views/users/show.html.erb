@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <strong>Auth Token:</strong>
-  <%= @user.auth_token %>
-</p>
-
-<p>
   <strong>Authorized Applications:</strong>
   <%= @user.client_apps.map{ |app| app.name }.join(', ') %>
 </p>
