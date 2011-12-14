@@ -1,7 +1,7 @@
 class ClientApp < ActiveRecord::Base
   include TokenGenerator
   
-  attr_accessible :name, :callback_url
+  attr_accessible :name, :callback_url, :app_url
   
   has_and_belongs_to_many :organizations
   has_and_belongs_to_many :users

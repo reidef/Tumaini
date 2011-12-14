@@ -7,7 +7,7 @@
 
 <p>
   <strong>Authorized Applications:</strong>
-  <%= @user.client_apps.map{ |app| app.name }.join(', ') %>
+  <%= @user.client_apps.map{ |app| link_to( app.name, app.app_url) }.join(', ').html_safe %>
 </p>
 
 <nav>

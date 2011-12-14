@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110924222026) do
+ActiveRecord::Schema.define(:version => 20111214025323) do
 
   create_table "client_apps", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110924222026) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "callback_url"
+    t.string   "app_url"
   end
 
   create_table "client_apps_organizations", :id => false, :force => true do |t|

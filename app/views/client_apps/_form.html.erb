@@ -1,5 +1,6 @@
 <%= simple_form_for @client_app do |f| %>
   <%= f.input :name %>
+  <%= f.input :app_url %>
   <%= f.input :callback_url %>
   <div class="actions">
     <%= f.button :submit, :class => 'primary' %>
